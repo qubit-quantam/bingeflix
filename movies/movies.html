@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Boxicons, Google Fonts, and other resources -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link href="../style.css" rel="stylesheet" />
+  <link href="movies.css" rel="stylesheet" />
+  <link rel="icon" href="../favicon.ico" type="image/x-icon" />
+  <title>Movies - Bingeflix</title>
+</head>
+<body>
+  
+  <!-- Header Section -->
+  <header class="site-header">
+    <div class="header-container">
+      <!-- Logo -->
+      <div class="logo">
+        <a href="../index.html" style="text-decoration: none; color: inherit;">
+          <i class='bx bxl-c-plus-plus icon'></i>
+          <span>BingeFlix</span>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Toggle -->
+      <button id="mobileMenuToggle" class="mobile-menu-toggle" aria-label="Toggle menu">
+        <i class='bx bx-menu'></i>
+      </button>
+
+      <!-- Search Bar -->
+      <div class="header-search">
+        <input id="searchInput" type="text" placeholder="Search..." onkeydown="if (event.keyCode === 13) searchMovies()" />
+        <button onclick="searchMovies()"><i class='bx bx-search'></i></button>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="header-nav" id="headerNav">
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+    
+    <!-- Secondary Navigation for content types -->
+    <div class="secondary-nav">
+      <ul>
+        <li><a href="../movies/movies.html" class="active">Movies</a></li>
+        <li><a href="../tv-shows/tv-shows.html">TV Shows</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <div class="movie-grid-container">
+      <div id="movieGrid" class="movie-grid">
+        <!-- Movie cards will be populated here via JavaScript -->
+      </div>
+      
+      <div class="load-more-container">
+        <button id="loadMoreBtn" class="load-more-btn">Load More</button>
+      </div>
+    </div>
+    
+    <div class="row copyright" style="position: relative; display: flex; justify-content: space-evenly; color: #fff;">
+      <p style="font-size: 15px; flex-basis: 1;font-weight: 400;text-align: center;">Copyright &copy; 2025 All Rights Reserved | BingFlix</p>
+    </div>
+
+    <div class="row copyright" style="position: relative; display: flex; justify-content: center; padding-bottom: 2vw; color: #fff;">
+      <p style="font-size: 15px;text-align: center;margin-left: 10vw;margin-right: 10vw;font-weight: 100;">Bingeflix does not host any files, it only links to 3rd party services.</p>
+    </div>
+  </main>
+
+  <script>
+  // Mobile menu toggle functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const headerNav = document.getElementById('headerNav');
+    
+    if (mobileMenuToggle && headerNav) {
+      mobileMenuToggle.addEventListener('click', function() {
+        headerNav.classList.toggle('mobile-active');
+        // Toggle menu icon
+        const icon = mobileMenuToggle.querySelector('i');
+        if (icon) {
+          if (icon.classList.contains('bx-menu')) {
+            icon.classList.remove('bx-menu');
+            icon.classList.add('bx-x');
+          } else {
+            icon.classList.remove('bx-x');
+            icon.classList.add('bx-menu');
+          }
+        }
+      });
+    }
+  });
+  </script>
+
+  <script src="movies.js" type="text/javascript"></script>
+</body>
+</html> 

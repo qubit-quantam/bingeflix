@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Boxicons, Google Fonts, and other resources -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link href="style.css" rel="stylesheet" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <title>Bingeflix - Watch Movies & TV Shows Online for Free</title>
+
+   <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N1G1V5Z43G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-N1G1V5Z43G');
+</script>
+
+</head>
+<body>
+  
+ <!-- Header Section -->
+<header class="site-header">
+  <div class="header-container">
+    <!-- Logo -->
+    <div class="logo">
+      <a href="/" aria-label="BingeFlix Homepage">
+        <i class='bx bxl-c-plus-plus icon'></i>
+        <span>BingeFlix</span>
+      </a>
+    </div>
+
+    <!-- Mobile Menu Toggle -->
+    <button id="mobileMenuToggle" class="mobile-menu-toggle" aria-label="Toggle menu">
+      <i class='bx bx-menu'></i>
+    </button>
+
+    <!-- Search Bar -->
+    <div class="header-search">
+      <input id="searchInput" type="text" placeholder="Search..." onkeydown="if (event.keyCode === 13) searchMovies()" aria-label="Search movies and shows" />
+      <button onclick="searchMovies()" aria-label="Search button"><i class='bx bx-search'></i></button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="header-nav" id="headerNav">
+      <ul>
+        <li><a href="../movies/movies.html" class="active">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </nav>
+  </div>
+  
+  <!-- Secondary Navigation for content types -->
+  <div class="secondary-nav">
+    <ul>
+      <li><a href="movies/movies.html">Movies</a></li>
+      <li><a href="tv-shows/tv-shows.html">TV Shows</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- Mobile Menu Overlay -->
+<div id="mobileMenuOverlay" class="mobile-menu-overlay"></div>
+
+<!-- Main Content -->
+<main>
+  <!-- Hero Section -->
+  <section id="heroSection">
+    <ul class='slider'></ul>
+    <nav class='nav'>
+      <ion-icon class='btn prev' name="arrow-back-outline"></ion-icon>
+      <ion-icon class='btn next' name="arrow-forward-outline"></ion-icon>
+    </nav>
+  </section>
+  <!-- Other content -->
+
+  <!-- Other content sections as before -->
+  <section id="hnav_Content">
+    <nav class="sub-nav">
+      <a href="content_explore/content.html?type=movies">Trending Movies</a>
+      <a href="content_explore/content.html?type=series">Buzzin Series</a>
+      <a href="content_explore/content.html?type=movies&rank=topRanked">Top-Ranked Movies</a>
+      <a href="content_explore/content.html?type=series&rank=topRanked">Top-Rated Series</a>
+      <a href="content_explore/content.html?type=movies&rank=topRanked&region=IN">Bollywood</a>
+      <a href="content_explore/content.html?type=movies&rank=topRanked&region=KR">Korean</a>
+    </nav>
+    <!-- Other sections for movies, series, etc. -->
+  </section>
+
+  <div id="Movies">
+    <p style="color: #fff;">
+      Movies (In Theatres Worldwide):
+    </p>
+  </div>
+
+  <div  class="imgbtn">
+    <div id="movies" class="scroll-container" ></div>
+    <button id="fwbtn"  class="btf"><i class='bx bxs-chevron-left' style='color:#ffffff'  ></i></button>
+    <button id="bwbtn"  class="btw"><i class='bx bxs-chevron-right' style='color:#ffffff'  ></i></button>
+  </div>
+  
+  <div class="vertical-div"></div>
+
+  <div id="TopratedMovies">
+    <p style="color: #fff;">
+      Top Rated Movies:
+    </p>
+  </div>
+
+  <div  class="imgbtn">
+    <div id="topratedmovies" class="scroll-container"></div> 
+    <button id="fw1btn" class="btf"><i class='bx bxs-chevron-left' style='color:#ffffff'></i></button>
+    <button id="bw1btn" class="btw"><i class='bx bxs-chevron-right' style='color:#ffffff'></i></button>
+  </div>
+
+  <div class="vertical-div"></div>
+
+  <div id="MoviesInd">
+    <p style="color: #fff;">
+      Movies (In Indian Theatres)
+    </p>
+  </div>
+
+  <div  class="imgbtn">
+    <div id="moviesind" class="scroll-container"></div>  
+    <button id="fw2btn" class="btf"><i class='bx bxs-chevron-left' style='color:#ffffff'  ></i></button>
+    <button id="bw2btn" class="btw"><i class='bx bxs-chevron-right' style='color:#ffffff'  ></i></button>
+  </div>
+
+  <div class="vertical-div"></div>
+
+  <div id="Bollywood">
+    <p style="color: #fff;">
+      Bollywood
+    </p>   
+  </div>
+
+  <div  class="imgbtn">
+    <div id="bollywood" class="scroll-container"></div>
+    <button id="fw2btn" class="btf"><i class='bx bxs-chevron-left' style='color:#ffffff'  ></i></button>
+    <button id="bw2btn" class="btw"><i class='bx bxs-chevron-right' style='color:#ffffff'  ></i></button>
+  </div>
+
+  <div class="vertical-div"></div>
+
+  <div id="Series">
+    <p style="color: #fff;">
+      Series: (Now-Airing)
+    </p>
+  </div>
+
+  <div  class="imgbtn">
+    <div id="series" class="scroll-container"></div>
+    <button id="fw2btn" class="btf"><i class='bx bxs-chevron-left' style='color:#ffffff'  ></i></button>
+    <button id="bw2btn" class="btw"><i class='bx bxs-chevron-right' style='color:#ffffff'  ></i></button>
+  </div>
+
+  <div class="vertical-div"></div>
+
+  <div id="SeriesTr">
+    <p style="color: #fff;">
+      Series: (Top-Rated)
+    </p>
+  </div>
+
+  <div  class="imgbtn">
+    <div id="seriestr" class="scroll-container"></div>
+    <button id="fw2btn" class="btf"><i class='bx bxs-chevron-left' style='color:#ffffff'  ></i></button>
+    <button id="bw2btn" class="btw"><i class='bx bxs-chevron-right' style='color:#ffffff'  ></i></button>
+  </div>
+
+  <div class="vertical-div"></div>
+
+  <div id="KoreanSeries">
+    <p style="color: #fff;">
+      Korean Series:
+    </p>
+  </div>
+
+  <div  class="imgbtn">
+    <div id="koreanseries" class="scroll-container"></div>
+    <button id="fw2btn" class="btf"><i class='bx bxs-chevron-left' style='color:#ffffff'  ></i></button>
+    <button id="bw2btn" class="btw"><i class='bx bxs-chevron-right' style='color:#ffffff'  ></i></button>
+  </div>
+
+  <div class="row copyright" style="position: relative; display: flex; justify-content: space-evenly;  color: #fff;">
+    <p style="font-size: 15px; flex-basis: 1;font-weight: 400;text-align: center;">Copyright &copy; 2025 All Rights Reserved | BingFlix</p>
+  </div>
+
+  <div class="row copyright" style="position: relative; display: flex; justify-content: center; padding-bottom: 2vw; color: #fff;">
+    <p style="font-size: 15px;text-align: center;margin-left: 10vw;margin-right: 10vw;font-weight: 100;">Bingeflix does not host any files, it only links to 3rd party services.</p>
+  </div>
+
+</div>
+</main>
+
+<script>
+  // Mobile menu toggle functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const headerNav = document.getElementById('headerNav');
+    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+    
+    if (mobileMenuToggle && headerNav && mobileMenuOverlay) {
+      // Toggle menu when hamburger icon is clicked
+      mobileMenuToggle.addEventListener('click', function() {
+        headerNav.classList.toggle('mobile-active');
+        mobileMenuOverlay.classList.toggle('active');
+        document.body.style.overflow = headerNav.classList.contains('mobile-active') ? 'hidden' : '';
+        
+        // Toggle menu icon
+        const icon = mobileMenuToggle.querySelector('i');
+        if (icon) {
+          if (icon.classList.contains('bx-menu')) {
+            icon.classList.remove('bx-menu');
+            icon.classList.add('bx-x');
+          } else {
+            icon.classList.remove('bx-x');
+            icon.classList.add('bx-menu');
+          }
+        }
+      });
+      
+      // Close menu when overlay is clicked
+      mobileMenuOverlay.addEventListener('click', function() {
+        headerNav.classList.remove('mobile-active');
+        mobileMenuOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+        
+        // Reset menu icon
+        const icon = mobileMenuToggle.querySelector('i');
+        if (icon) {
+          icon.classList.remove('bx-x');
+          icon.classList.add('bx-menu');
+        }
+      });
+      
+      // Close menu when a menu item is clicked
+      headerNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function() {
+          headerNav.classList.remove('mobile-active');
+          mobileMenuOverlay.classList.remove('active');
+          document.body.style.overflow = '';
+          
+          // Reset menu icon
+          const icon = mobileMenuToggle.querySelector('i');
+          if (icon) {
+            icon.classList.remove('bx-x');
+            icon.classList.add('bx-menu');
+          }
+        });
+      });
+    }
+  });
+</script>
+
+<script src="script.js" type="text/javascript"></script>
+
+</body>
+</html>

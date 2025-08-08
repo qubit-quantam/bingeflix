@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <!-- Default title (will be replaced) -->
+  <title>Series Watch Now</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Press+Start+2P&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link href="series_details.css" rel="stylesheet">
+  <link rel="stylesheet" href="popstyle.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N1G1V5Z43G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Disable automatic pageview to prevent duplicate hits
+  gtag('config', 'G-N1G1V5Z43G', { 'send_page_view': false });
+</script>
+
+
+  <script type="text/javascript">
+    var oIzRV_Owy_pihFCc={"it":4430041,"key":"4c0d8"};
+</script>
+<script src="https://dfmpe7igjx4jo.cloudfront.net/71c68d0.js"></script>
+
+
+
+
+
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="site-header">
+    <div class="header-container">
+      <!-- Logo -->
+      <div class="logo">
+        <a href="../index.html" aria-label="BingeFlix Homepage">
+          <i class='bx bxl-c-plus-plus icon'></i>
+          <span>BingeFlix</span>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Toggle -->
+      <button id="mobileMenuToggle" class="mobile-menu-toggle" aria-label="Toggle menu">
+        <i class='bx bx-menu'></i>
+      </button>
+
+      <!-- Search Bar -->
+      <div class="header-search">
+        <input id="searchInput" type="text" placeholder="Search..." onkeydown="if (event.keyCode === 13) searchSeries()" aria-label="Search series">
+        <button onclick="searchSeries()" aria-label="Search button"><i class='bx bx-search'></i></button>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="header-nav" id="headerNav">
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+    
+    <!-- Secondary Navigation for content types -->
+    <div class="secondary-nav">
+      <ul>
+        <li><a href="../movies/movies.html">Movies</a></li>
+        <li><a href="../tv-shows/tv-shows.html" class="active">TV Shows</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <h1 id="displayTitle">Series Watch Now...</h1>
+    <div class="content-wrapper">
+      <div id="videoPlayer">
+        <iframe
+          id="seriesIframe"
+          src=""
+          frameborder="0"
+          allow="autoplay; encrypted-media"
+          allowfullscreen
+          class="shimmer-bg"
+        ></iframe>
+      </div>
+
+      <div id="buttons" class="button-container">
+        <button id="Trailerbtn" class="btn">Trailer</button>
+        <!-- Server Switcher Buttons (8 total) -->
+        <button id="Server1Btn" class="btn server-btn" data-index="0">Server1</button>
+        <button id="Server2Btn" class="btn server-btn" data-index="1">Server2</button>
+        <button id="Server3Btn" class="btn server-btn" data-index="2">Server3</button>
+        <button id="Server4Btn" class="btn server-btn" data-index="3">Server4</button>
+        <button id="Server5Btn" class="btn server-btn" data-index="4">Server5</button>
+        <button id="Server6Btn" class="btn server-btn" data-index="5">Server6</button>
+        <button id="Server7Btn" class="btn server-btn" data-index="6">Server7</button>
+        <button id="Server8Btn" class="btn server-btn" data-index="7">Server8</button>
+      </div>
+
+      <!-- Instruction Text -->
+      <p class="instruction-text">
+        Select your season and episode here:
+      </p>
+
+      <div class="seasons-episodes-container">
+        <div id="seasonContainer" class="season-buttons">
+          <!-- Season tabs will be populated dynamically here -->
+        </div>
+
+        <div id="episodeContainer" class="episode-buttons">
+          <!-- Episode number buttons will be populated dynamically here -->
+        </div>
+
+        <div id="loadMoreEpisodesContainer" class="load-more-episodes" style="display: none;">
+          <button id="loadMoreEpisodesBtn" class="load-more-btn">Load More Episodes</button>
+        </div>
+      </div>
+
+      <!-- Hidden select elements for compatibility with existing JS -->
+      <select name="Season No" id="Sno" style="display: none;"></select>
+      <select name="Episode No" id="epNo" style="display: none;"></select>
+
+      <div class="markdown-div">
+        <pre style="background-color: rgb(3, 16, 27);"><code>
+- Sometimes a Human verification is required to secure our platform.
+
+- Server1 is the default server.
+- If the default fails to load, try Server2, Server3, Server4, Server5, Server6, Server7 or Server8.
+- Do not press the buttons continuously.
+- If you get redirected to another site, close it & come back.
+
+- Enjoy ✨😇
+        </code></pre>
+      </div>
+
+      <div id="seriesDetails">
+        <h2>Series Details</h2>
+        <img id="poster" src="" alt="Serie Poster">
+        <h3 id="title"></h3>
+        <div id="desc">
+          <p id="description"></p>
+        </div>
+        <div class="cast-section">
+          <h3>Cast:</h3>
+          <div id="castList"></div>
+        </div>  
+      </div>
+    </div>
+  </main>
+
+  <!-- Popup Overlay -->
+  <div class="popup-overlay" id="human-verification-popup" style="display: none;">
+    <div class="popup-content">
+      <img src="https://bingflix.wuaze.com/logo.png" alt="BingeFlix" class="popup-logo">
+      <h2>Human Verification Required</h2>
+      <p>Honored user (This is not an ads), kindly complete a quick verification to start streaming.</p>
+      <button class="verify-btn" id="verify-btn" onclick="_CJ()">Verify Now</button>
+      <p class="instructions">
+        Simply click <strong>"Verify Now"</strong>, to view available task. Please, Complete one task and your access will be unlocked instantly!!
+      </p>
+      <a class="how-to-btn" href="#" id="how-to-btn" target="_blank">.</a>
+      <p>Safe and Secure:</p>
+      <!-- Instructions Container -->
+      <div id="instructions-container" style="display: none;">
+        <!-- Country-specific instructions will be added here dynamically -->
+      </div>
+      
+      <!-- Online User Counter -->
+      <div class="live-counter-container">
+        <div class="counter-icon">
+          <!-- User SVG Icon -->
+          <svg width="20" height="20" fill="#fff" viewBox="0 0 24 24">
+            <path d="M12 12c2.209 0 4-1.791 4-4s-1.791-4-4-4-4 1.791-4 4 1.791 4 4 4zm0 2c-2.67 0-8 1.337-8 4v2h16v-2c0-2.663-5.33-4-8-4z"/>
+          </svg>
+        </div>
+        <div class="counter-details">
+          <div class="counter-text">
+            <span class="counter-number" id="onlineCounter">5993</span>
+            <span class="counter-label">Users Online</span>
+          </div>
+          <div class="live-indicator"></div>
+        </div>
+      </div>
+      
+      <!-- Comment Section -->
+      <div class="comments-container">
+        <div class="comments-header">
+          <b>1679+ Comments</b>
+          <hr />
+        </div>
+        <!-- Comment Input (optional) -->
+        <div class="comment-input-wrapper">
+          <input type="text" id="comment" placeholder="Add a Comment..." />
+          <button id="post">Post</button>
+        </div>
+        <div class="premium-notice">
+          <input id="check" type="checkbox" />
+          <span>Only premium members can comment</span>
+        </div>
+        <!-- Comments List -->
+        <div class="comments-list" id="commentsList">
+          <div class="comment" data-comment-id="1" data-offset="5">
+            <div class="comment-avatar">
+              <img src="https://bingflix.wuaze.com/movie_details/Profile2/Brandon.jpg" alt="Profile Picture">
+            </div>
+            <div class="comment-content">
+              <div class="comment-header">
+                <span class="comment-name">Brandon Smith</span>
+                <span class="comment-timestamp">5 seconds ago</span>
+              </div>
+              <p class="comment-text">Installed the Opera GX browser on my desktop as my task, and it unlocked immediately. So easy!</p>
+              <div class="comment-actions">
+                <button>Like</button> <span class="like-count">1 Like</span> · 
+                <button>Reply</button>
+              </div>
+            </div>
+          </div>
+          <div class="comment" data-comment-id="2" data-offset="37">
+            <div class="comment-avatar">
+              <img src="https://bingflix.wuaze.com/movie_details/Profile2/Trevor.jpg" alt="Profile Picture">
+            </div>
+            <div class="comment-content">
+              <div class="comment-header">
+                <span class="comment-name">Trevor Anderson</span>
+                <span class="comment-timestamp">37 seconds ago</span>
+              </div>
+              <p class="comment-text">I have also installed Opera GX browser. and I got access instantly!</p>
+              <div class="comment-actions">
+                <button>Like</button> <span class="like-count">3 Likes</span> · 
+                <button>Reply</button>
+              </div>
+            </div>
+          </div>
+          <div class="comment" data-comment-id="3" data-offset="60">
+            <div class="comment-avatar">
+              <img src="https://bingflix.wuaze.com/movie_details/Profile2/Connor.jpg" alt="Profile Picture">
+            </div>
+            <div class="comment-content">
+              <div class="comment-header">
+                <span class="comment-name">Connor Miller</span>
+                <span class="comment-timestamp">1 minute ago</span>
+              </div>
+              <p class="comment-text">For app install tasks, make sure you've never installed that app before, or it won't count. I had to use a different app to get verified!!</p>
+              <div class="comment-actions">
+                <button>Like</button> <span class="like-count">5 Likes</span> · 
+                <button>Reply</button>
+              </div>
+            </div>
+          </div>
+          <div class="comment" data-comment-id="4" data-offset="420">
+            <div class="comment-avatar">
+              <img src="https://bingflix.wuaze.com/movie_details/Profile2/Travis.jpg" alt="Profile Picture">
+            </div>
+            <div class="comment-content">
+              <div class="comment-header">
+                <span class="comment-name">Travis</span>
+                <span class="comment-timestamp">13 minutes ago</span>
+              </div>
+              <p class="comment-text">If it doesn't work at first, try a different task. Mine worked on the second attempt. install Opera GX browser</p>
+              <div class="comment-actions">
+                <button>Like</button> <span class="like-count">19 Likes</span> · 
+                <button>Reply</button>
+              </div>
+            </div>
+          </div>
+          <div class="comment" data-comment-id="5" data-offset="1140">
+            <div class="comment-avatar">
+              <img src="https://bingflix.wuaze.com/movie_details/Profile/Nicholas.jpeg" alt="Profile Picture">
+            </div>
+            <div class="comment-content">
+              <div class="comment-header">
+                <span class="comment-name">Nicholas</span>
+                <span class="comment-timestamp">19 minutes ago</span>
+              </div>
+              <p class="comment-text">Honestly, I thought this was fake, but it actually worked. Just had to complete one task.</p>
+              <div class="comment-actions">
+                <button>Like</button> <span class="like-count">12 Likes</span> · 
+                <button>Reply</button>
+              </div>
+            </div>
+          </div>
+          <div class="comment" data-comment-id="6" data-offset="1560">
+            <div class="comment-avatar">
+              <img src="https://bingflix.wuaze.com/movie_details/Profile2/Emily.jpg" alt="Profile Picture">
+            </div>
+            <div class="comment-content">
+              <div class="comment-header">
+                <span class="comment-name">Emily Davis</span>
+                <span class="comment-timestamp">26 minutes ago</span>
+              </div>
+              <p class="comment-text">Best method: VPN free trial. Took me 3 minutes, and boom! Unlocked! Thanks Animeobt.</p>
+              <div class="comment-actions">
+                <button>Like</button> <span class="like-count">15 Likes</span> · 
+                <button>Reply</button>
+              </div>
+            </div>
+          </div>
+          <div class="comment" data-comment-id="7" data-offset="1980">
+            <div class="comment-avatar">
+              <img src="https://bingflix.wuaze.com/movie_details/Profile/Mateo.jpeg" alt="Profile Picture">
+            </div>
+            <div class="comment-content">
+              <div class="comment-header">
+                <span class="comment-name">Ryan</span>
+                <span class="comment-timestamp">33 minutes ago</span>
+              </div>
+              <p class="comment-text">Installed the Opera GX browser and it unlocked!</p>
+              <div class="comment-actions">
+                <button>Like</button> <span class="like-count">18 Likes</span> · 
+                <button>Reply</button>
+              </div>
+            </div>
+          </div>
+          <div class="comment" data-comment-id="8" data-offset="2460">
+            <div class="comment-avatar">
+              <img src="https://bingflix.wuaze.com/movie_details/Profile2/Jared.jpg" alt="Profile Picture">
+            </div>
+            <div class="comment-content">
+              <div class="comment-header">
+                <span class="comment-name">Jared Thompson</span>
+                <span class="comment-timestamp">41 minutes ago</span>
+              </div>
+              <p class="comment-text">Make sure you actually complete the task. My first one didn't work, but the second did!</p>
+              <div class="comment-actions">
+                <button>Like</button> <span class="like-count">22 Likes</span> · 
+                <button>Reply</button>
+              </div>
+            </div>
+          </div>
+          <div class="comment" data-comment-id="9" data-offset="3240">
+            <div class="comment-avatar">
+              <img src="https://bingflix.wuaze.com/movie_details/Profile/Theodore.jpeg" alt="Profile Picture">
+            </div>
+            <div class="comment-content">
+              <div class="comment-header">
+                <span class="comment-name">Daniel Roberts</span>
+                <span class="comment-timestamp">54 minutes ago</span>
+              </div>
+              <p class="comment-text">I thought it would take forever, but I just installed an app, and everything worked instantly! No complaints!</p>
+              <div class="comment-actions">
+                <button>Like</button> <span class="like-count">27 Likes</span> · 
+                <button>Reply</button>
+              </div>
+            </div>
+          </div>
+          <div class="comment" data-comment-id="10" data-offset="3540">
+            <div class="comment-avatar">
+              <img src="https://bingflix.wuaze.com/movie_details/Profile/Adrian.jpeg" alt="Profile Picture">
+            </div>
+            <div class="comment-content">
+              <div class="comment-header">
+                <span class="comment-name">Nathan Reed</span>
+                <span class="comment-timestamp">59 minutes ago</span>
+              </div>
+              <p class="comment-text">Not gonna lie, I was skeptical, but it actually works if you follow the instructions.!</p>
+              <div class="comment-actions">
+                <button>Like</button> <span class="like-count">30 Likes</span> · 
+                <button>Reply</button>
+              </div>
+            </div>
+          </div>
+          <!-- Group 2: Next 6 comments (all 1 hour ago) -->
+          <div class="comment" data-comment-id="11" data-offset="3600">
+            <div class="comment-avatar">
+              <img src="https://bingflix.wuaze.com/movie_details/Profile2/Evan.jpg" alt="Profile Picture">
+            </div>
+            <div class="comment-content">
+              <div class="comment-header">
+                <span class="comment-name">Evan Jackson</span>
+                <span class="comment-timestamp">1 hour ago</span>
+              </div>
+              <p class="comment-text">I thought it wasn't working, but I just had to wait 2 minutes after completing my task. Be patient!</p>
+              <div class="comment-actions">
+                <button>Like</button> <span class="like-count">80 Likes</span> · 
+                <button>Reply</button>
+              </div>
+            </div>
+          </div>
+          <div class="comment" data-comment-id="12" data-offset="3600">
+            <div class="comment-avatar">
+              <img src="https://bingflix.wuaze.com/movie_details/Profile/Caleb.jpeg" alt="Profile Picture">
+            </div>
+            <div class="comment-content">
+              <div class="comment-header">
+                <span class="comment-name">Caleb</span>
+                <span class="comment-timestamp">1 hour ago</span>
+              </div>
+              <p class="comment-text">Completed a survey but didn't unlock at first. I retried with another offer, and it worked fine.</p>
+              <div class="comment-actions">
+                <button>Like</button> <span class="like-count">85 Likes</span> · 
+                <button>Reply</button>
+              </div>
+            </div>
+          </div>
+          <div class="comment" data-comment-id="13" data-offset="3600">
+            <div class="comment-avatar">
+              <img src="https://bingflix.wuaze.com/movie_details/Profile2/Drew.jpg" alt="Profile Picture">
+            </div>
+            <div class="comment-content">
+              <div class="comment-header">
+                <span class="comment-name">Drew Walker</span>
+                <span class="comment-timestamp">1 hour ago</span>
+              </div>
+              <p class="comment-text">It took me a couple of tries, but once I finished the survey correctly, I got in! Don't rush through it.</p>
+              <div class="comment-actions">
+                <button>Like</button> <span class="like-count">90 Likes</span> · 
+                <button>Reply</button>
+              </div>
+            </div>
+          </div>
+          <div class="comment" data-comment-id="14" data-offset="3600">
+            <div class="comment-avatar">
+              <img src="https://bingflix.wuaze.com/movie_details/Profile2/Tyler.jpg" alt="Profile Picture">
+            </div>
+            <div class="comment-content">
+              <div class="comment-header">
+                <span class="comment-name">Tyler Johnson</span>
+                <span class="comment-timestamp">1 hour ago</span>
+              </div>
+              <p class="comment-text">I picked the 'install and run for 30 seconds' offer. So easy and unlocked automatically!</p>
+              <div class="comment-actions">
+                <button>Like</button> <span class="like-count">95 Likes</span> · 
+                <button>Reply</button>
+              </div>
+            </div>
+          </div>
+          <div class="comment" data-comment-id="15" data-offset="3600">
+            <div class="comment-avatar">
+              <img src="https://bingflix.wuaze.com/movie_details/Profile2/Jordan.jpg" alt="Profile Picture">
+            </div>
+            <div class="comment-content">
+              <div class="comment-header">
+                <span class="comment-name">Jordan Thomas</span>
+                <span class="comment-timestamp">1 hour ago</span>
+              </div>
+              <p class="comment-text">Quick and easy: I got premium, ad-free streaming in no time. Trust me, you'll regret not doing it.</p>
+              <div class="comment-actions">
+                <button>Like</button> <span class="like-count">100 Likes</span> · 
+                <button>Reply</button>
+              </div>
+            </div>
+          </div>
+          <div class="comment" data-comment-id="16" data-offset="3600">
+            <div class="comment-avatar">
+              <img src="https://bingflix.wuaze.com/movie_details/Profile/Kenneth.jpeg" alt="Profile Picture">
+            </div>
+            <div class="comment-content">
+              <div class="comment-header">
+                <span class="comment-name">Ethan Walker</span>
+                <span class="comment-timestamp">1 hour ago</span>
+              </div>
+              <p class="comment-text">Did the free trial option, and it worked like a charm! Just remember to cancel if you don't want to keep it..</p>
+              <div class="comment-actions">
+                <button>Like</button> <span class="like-count">88 Likes</span> · 
+                <button>Reply</button>
+              </div>
+            </div>
+          </div>
+          <!-- Group 3: Last 4 comments (all 2 hours ago) -->
+          <div class="comment" data-comment-id="17" data-offset="7200">
+            <div class="comment-avatar">
+              <img src="https://bingflix.wuaze.com/movie_details/Profile2/Ava.jpg" alt="Profile Picture">
+            </div>
+            <div class="comment-content">
+              <div class="comment-header">
+                <span class="comment-name">Ava Thompson</span>
+                <span class="comment-timestamp">2 hours ago</span>
+              </div>
+              <p class="comment-text">Worked for me on the first try! Make sure to follow instructions exactly. now I'm riding the ad-free, AnimeOBT premium wave!</p>
+              <div class="comment-actions">
+                <button>Like</button> <span class="like-count">110 Likes</span> · 
+                <button>Reply</button>
+              </div>
+            </div>
+          </div>
+          <div class="comment" data-comment-id="18" data-offset="7200">
+            <div class="comment-avatar">
+              <img src="https://bingflix.wuaze.com/movie_details/Profile2/Wesley.jpg" alt="Profile Picture">
+            </div>
+            <div class="comment-content">
+              <div class="comment-header">
+                <span class="comment-name">Wesley Allen</span>
+                <span class="comment-timestamp">2 hours ago</span>
+              </div>
+              <p class="comment-text">This actually works! Took me just 2 minutes with the free trial option. And now I'm streaming without ads.</p>
+              <div class="comment-actions">
+                <button>Like</button> <span class="like-count">135 Likes</span> · 
+                <button>Reply</button>
+              </div>
+            </div>
+          </div>
+          <div class="comment" data-comment-id="19" data-offset="7200">
+            <div class="comment-avatar">
+              <img src="https://bingflix.wuaze.com/movie_details/Profile2/Dylan.jpg" alt="Profile Picture">
+            </div>
+            <div class="comment-content">
+              <div class="comment-header">
+                <span class="comment-name">Dylan Davis</span>
+                <span class="comment-timestamp">2 hours ago</span>
+              </div>
+              <p class="comment-text">No pop-ups, no interruptions—just a few minutes to unlock ad-free viewing experience.</p>
+              <div class="comment-actions">
+                <button>Like</button> <span class="like-count">160 Likes</span> · 
+                <button>Reply</button>
+              </div>
+            </div>
+          </div>
+          <div class="comment" data-comment-id="20" data-offset="7200">
+            <div class="comment-avatar">
+              <img src="https://bingflix.wuaze.com/movie_details/Profile2/Sophia.jpg" alt="Profile Picture">
+            </div>
+            <div class="comment-content">
+              <div class="comment-header">
+                <span class="comment-name">Sophia Martin</span>
+                <span class="comment-timestamp">2 hours ago</span>
+              </div>
+              <p class="comment-text">All it took was a minute, and now I'm set for days of premium, ad-free streaming. A tiny effort that pays off big time!</p>
+              <div class="comment-actions">
+                <button>Like</button> <span class="like-count">187 Likes</span> · 
+                <button>Reply</button>
+              </div>
+            </div>
+          </div>
+        </div><!-- End comments-list -->
+        
+        <!-- See More Comments Section -->
+        <div class="see-more-comments">
+          <button id="seeMoreComments" class="see-more-btn">See More Comments</button>
+          <p id="premiumMessage" class="premium-msg">Only Premium Members can View all Comments.</p>
+        </div>
+        
+      </div><!-- End comments-container -->
+    </div><!-- End popup-content -->
+  </div><!-- End popup-overlay -->
+
+  <script>
+    document.getElementById("seeMoreComments").addEventListener("click", function() {
+      document.getElementById("premiumMessage").classList.add("show");
+    });
+    
+    // Mobile menu toggle functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+      const headerNav = document.getElementById('headerNav');
+      
+      if (mobileMenuToggle && headerNav) {
+        mobileMenuToggle.addEventListener('click', function() {
+          headerNav.classList.toggle('show');
+          // Change icon based on menu state
+          const icon = this.querySelector('i');
+          if (icon) {
+            if (headerNav.classList.contains('show')) {
+              icon.classList.remove('bx-menu');
+              icon.classList.add('bx-x');
+            } else {
+              icon.classList.remove('bx-x');
+              icon.classList.add('bx-menu');
+            }
+          }
+        });
+      }
+      
+      // Close menu when clicking outside
+      document.addEventListener('click', function(event) {
+        if (headerNav && headerNav.classList.contains('show') && 
+            !headerNav.contains(event.target) && 
+            !mobileMenuToggle.contains(event.target)) {
+          headerNav.classList.remove('show');
+          const icon = mobileMenuToggle.querySelector('i');
+          if (icon) {
+            icon.classList.remove('bx-x');
+            icon.classList.add('bx-menu');
+          }
+        }
+      });
+    });
+  </script>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Read URL parameters using URLSearchParams
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');              // e.g., ?id=1396
+    const type = params.get('type') || 'tv';    // Default to 'tv'
+    const apiKey = '7b4b8af2d885777c1c603011ee871be6'; // Your TMDb API key
+
+    // Build the API URL (works for both movies and TV shows)
+    const url = `https://api.themoviedb.org/3/${type}/${id}?api_key=${apiKey}`;
+
+    // Fetch data from TMDb
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        const title = data.name || data.title || 'Title Not Found';
+        document.title = title;
+        const displayElem = document.getElementById('displayTitle');
+        if (displayElem) {
+          // Set the default text with the title inserted
+          displayElem.innerText = `Watch ${title} Series Online For Free`;
+        }
+        
+        // Send a new pageview event to Google Analytics with the updated title
+        gtag('event', 'page_view', {
+          'page_title': title,
+          'page_location': window.location.href,
+          'page_path': window.location.pathname + window.location.search
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching title:', error);
+        document.title = 'Error Loading Title';
+        const displayElem = document.getElementById('displayTitle');
+        if (displayElem) {
+          displayElem.innerText = 'Error Loading Title';
+        }
+      });
+  });
+</script>
+
+  <script src="popscript.js"></script>
+  <script src="series_details.js" type="text/javascript"></script>
+</body>
+</html>

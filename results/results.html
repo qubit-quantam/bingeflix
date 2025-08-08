@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Results</title>
+  <link href="results.css" rel="stylesheet"/>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="site-header">
+    <div class="header-container">
+      <!-- Logo -->
+      <div class="logo">
+        <a href="https://bingflix.wuaze.com/" style="text-decoration: none; color: inherit;">
+          <i class='bx bxl-c-plus-plus icon'></i>
+          <span>BingeFlix</span>
+        </a>
+      </div>
+
+      <!-- Search Bar -->
+      <div class="header-search">
+        <input id="searchInput" type="text" placeholder="Search..." onkeydown="if (event.keyCode === 13) searchMovies()" />
+        <button onclick="searchMovies()"><i class='bx bx-search'></i></button>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="header-nav">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <!-- You can add more links here -->
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container" id="results"></div>
+  
+  <script src="results.js" type="text/javascript"></script>
+</body>
+</html>

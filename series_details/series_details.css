@@ -1,0 +1,906 @@
+/* =================== Import Google Fonts =================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+/* =================== Global Styles =================== */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: rgb(3, 16, 27);
+  color: white;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+}
+
+/* =================== Main Layout =================== */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 2rem;
+  color: #f5f5f5;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+/* Content wrapper improvements */
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+/* =================== Header Styling =================== */
+.site-header {
+  background: linear-gradient(135deg, rgb(1, 62, 97), rgb(209, 35, 4));
+  color: #fff;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 10px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.4em;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.logo a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+}
+
+.logo .icon {
+  margin-right: 8px;
+  font-size: 1.4em;
+  color: #fff;
+}
+
+/* Mobile Menu Toggle Button */
+.mobile-menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+/* Search bar styling in header */
+.header-search {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  max-width: 400px;
+  margin: 0 20px;
+  position: relative;
+}
+
+.header-search input {
+  width: 100%;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 20px 0 0 20px;
+  outline: none;
+  font-size: 0.9em;
+  background: #fff;
+  color: #333;
+}
+
+.header-search button {
+  background: rgb(209, 35, 4);
+  border: none;
+  padding: 8px 12px;
+  border-radius: 0 20px 20px 0;
+  cursor: pointer;
+  font-size: 1em;
+  color: #fff;
+  transition: 0.3s ease;
+}
+
+.header-search button:hover {
+  background: rgb(1, 62, 97);
+}
+
+/* Navigation styling */
+.header-nav ul {
+  display: flex;
+  list-style: none;
+}
+
+.header-nav li {
+  margin: 0 10px;
+}
+
+.header-nav a {
+  color: #fff;
+  font-size: 1em;
+  text-decoration: none;
+  padding: 6px 12px;
+  transition: 0.3s ease;
+}
+
+.header-nav a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
+
+/* Secondary Navigation */
+.secondary-nav {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 8px 0;
+  width: 100%;
+}
+
+.secondary-nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: 20px;
+}
+
+.secondary-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9em;
+  padding: 5px 10px;
+  transition: 0.3s ease;
+}
+
+.secondary-nav a:hover, 
+.secondary-nav a.active {
+  color: #ff4b2b;
+}
+
+/* =================== Video Player & Iframe =================== */
+#videoPlayer {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto 20px;
+  position: relative;
+  background-color: rgb(3, 16, 27);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+#seriesIframe {
+  width: 100%;
+  aspect-ratio: 16/9;
+  max-height: 700px;
+  border: none;
+  display: block;
+}
+
+/* =================== Series Details Container =================== */
+#seriesDetails {
+  width: 100%;
+  max-width: 1100px;
+  margin: 30px auto;
+  text-align: center;
+  padding: 20px;
+  background: rgba(3, 16, 40, 0.7);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#poster {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  margin: 0 auto 20px;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  #poster {
+    max-width: 300px;
+  }
+}
+
+/* Ensure episode list is properly centered and styled */
+.seasons-episodes-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 15px auto;
+  padding: 10px;
+  background-color: rgba(3, 16, 27, 0.8);
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.season-buttons, .episode-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Button Container */
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  width: 100%;
+  margin: 15px auto;
+  padding: 10px;
+  max-width: 1100px;
+}
+
+/* Button Styles */
+.btn {
+  padding: 10px 15px;
+  margin: 5px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  background-color: #263545;
+  color: #f5f5f5;
+  min-width: 85px;
+}
+
+.btn:hover {
+  background-color: #334a66;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.server-btn {
+  background-color: #1a2634;
+  border: 1px solid #2c3e50;
+}
+
+.server-btn:hover {
+  background-color: #2980b9;
+  color: white;
+}
+
+.active-server {
+  background-color: #2980b9;
+  color: white;
+}
+
+.active-server:hover {
+  background-color: #3498db;
+}
+
+/* =================== Season and Episode Selector =================== */
+.season-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 15px auto;
+  width: 100%;
+  max-width: 1100px;
+  background-color: rgba(3, 16, 27, 0.5);
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.season-tab {
+  padding: 8px 15px;
+  background-color: #162536;
+  color: #f5f5f5;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  min-width: 100px;
+  margin: 5px;
+}
+
+.season-tab:hover {
+  background-color: #2c3e50;
+}
+
+.season-tab.active {
+  background-color: #2980b9;
+}
+
+.episode-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 15px auto;
+  width: 100%;
+  max-width: 1100px;
+  background-color: rgba(3, 16, 27, 0.5);
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.episode-btn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1a2634;
+  color: #f5f5f5;
+  border: 1px solid #2c3e50;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 3px;
+}
+
+.episode-btn:hover {
+  background-color: #2c3e50;
+  transform: translateY(-2px);
+}
+
+.episode-btn.active {
+  background-color: #2980b9;
+}
+
+.load-more-episodes {
+  display: flex;
+  justify-content: center;
+  margin: 15px auto;
+  width: 100%;
+}
+
+.load-more-btn {
+  padding: 8px 15px;
+  background-color: #1a2634;
+  color: #f5f5f5;
+  border: 1px solid #2c3e50;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.load-more-btn:hover {
+  background-color: #2c3e50;
+}
+
+/* =================== Text Elements =================== */
+#title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin: 15px 0;
+  color: #f5f5f5;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+#description {
+  line-height: 1.6;
+  margin: 15px auto;
+  max-width: 90%;
+  font-size: 1rem;
+  color: #e0e0e0;
+  text-align: center;
+}
+
+/* Description section padding */
+#desc {
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  margin: 10px 0;
+}
+
+/* Container for series details */
+.container {
+  padding: 20px;
+  background: rgba(3, 16, 40, 0.5);
+  border-radius: 8px;
+  margin: 15px auto;
+  width: 100%;
+  max-width: 1100px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* =================== Cast List Section =================== */
+.cast-section {
+  margin-top: 25px;
+  width: 100%;
+}
+
+.cast-section h3 {
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+  color: #f5f5f5;
+}
+
+#castList {
+  display: flex;
+  flex-direction: row;
+  padding: 1%;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  box-sizing: border-box;
+}
+
+#castList img {
+  width: 10vw;
+  max-width: 120px;
+  margin: 5px;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* =================== Markdown Div =================== */
+.markdown-div {
+  padding-top: 3%;
+  width: 100%;
+  max-width: 1100px;
+  box-sizing: border-box;
+}
+
+.markdown-div pre {
+  background-color: rgb(3, 16, 27);
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.markdown-div pre code {
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: #f5f5f5;
+}
+
+/* =================== Shimmer Animation (Loading Placeholder) =================== */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px;
+  }
+  100% {
+    background-position: 1000px;
+  }
+}
+
+.shimmer-bg {
+  background: linear-gradient(to right, rgba(16, 32, 47, 0.1) 0%, rgba(16, 32, 47, 0.3) 50%, rgba(33, 100, 161, 0.1) 100%);
+  background-size: 1000px 100%;
+  animation: shimmer 1.5s infinite linear;
+}
+
+/* =================== Popup Styles =================== */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+}
+
+.popup-content {
+  background-color: #fff;
+  color: #333;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.popup-logo {
+  max-width: 150px;
+  margin-bottom: 15px;
+}
+
+
+
+.instructions {
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+/* Live counter */
+
+
+
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.8);
+    opacity: 0.7;
+  }
+}
+
+/* Comments section */
+.comments-container {
+  margin-top: 20px;
+  text-align: left;
+  border-top: 1px solid #eee;
+  padding-top: 15px;
+  width: 100%;
+}
+
+.comments-header {
+  margin-bottom: 10px;
+}
+
+.comment-input-wrapper {
+  display: flex;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.comment-input-wrapper input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px 0 0 4px;
+}
+
+.comment-input-wrapper button {
+  background: #3a83f6;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+}
+
+.premium-notice {
+  font-size: 12px;
+  color: #777;
+  margin-bottom: 15px;
+}
+
+.comments-list {
+  max-height: 400px;
+  overflow-y: auto;
+  width: 100%;
+}
+
+.comment {
+  display: flex;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.comment-avatar img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.comment-content {
+  flex: 1;
+  max-width: 100%;
+}
+
+.comment-header {
+  margin-bottom: 5px;
+}
+
+.comment-name {
+  font-weight: bold;
+  color: #333;
+}
+
+.comment-timestamp {
+  font-size: 12px;
+  color: #777;
+  margin-left: 5px;
+}
+
+.comment-text {
+  font-size: 14px;
+  margin-bottom: 5px;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.comment-actions {
+  font-size: 12px;
+  color: #777;
+}
+
+.comment-actions button {
+  background: none;
+  border: none;
+  color: #3a83f6;
+  cursor: pointer;
+  font-size: 12px;
+  padding: 0;
+}
+
+.see-more-comments {
+  text-align: center;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.see-more-btn {
+  background: #f0f0f0;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 20px;
+  color: #333;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.premium-msg {
+  font-size: 12px;
+  color: #777;
+  margin-top: 5px;
+  display: none;
+}
+
+.premium-msg.show {
+  display: block;
+  animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* =================== Mobile Responsive Styles =================== */
+@media (min-width: 769px) {
+  .mobile-menu-toggle {
+    display: none;
+  }
+  
+  .header-nav {
+    display: flex;
+  }
+  
+  .logo {
+    font-size: 1.4em;
+  }
+  
+  .logo a, .logo .icon {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Header adjustments for mobile */
+  .mobile-menu-toggle {
+    display: block;
+  }
+  
+  .header-container {
+    flex-wrap: wrap;
+  }
+  
+  .logo {
+    font-size: 1.2em;
+  }
+  
+  .header-search {
+    order: 3;
+    margin: 10px 0;
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  .header-nav {
+    position: fixed;
+    top: 60px;
+    left: -100%;
+    width: 80%;
+    height: calc(100vh - 60px);
+    background: rgb(1, 62, 97);
+    z-index: 1000;
+    transition: 0.5s;
+    padding: 20px 0;
+    overflow-y: auto;
+  }
+  
+  .header-nav.show {
+    left: 0;
+  }
+  
+  .header-nav ul {
+    flex-direction: column;
+    padding: 0;
+  }
+  
+  .header-nav li {
+    width: 100%;
+    margin: 0;
+  }
+  
+  .header-nav a {
+    width: 100%;
+    display: block;
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .secondary-nav ul {
+    gap: 10px;
+  }
+  
+  .secondary-nav a {
+    font-size: 0.8em;
+  }
+  
+  h1 {
+    font-size: 1.6rem;
+  }
+  
+  h2, h3 {
+    font-size: 1.4rem;
+  }
+  
+  p {
+    font-size: 0.9rem;
+  }
+  
+  #videoPlayer {
+    max-width: 100%;
+  }
+  
+  #videoPlayer iframe,
+  #seriesIframe {
+    max-height: 450px;
+    width: 100%;
+    aspect-ratio: 16/9;
+  }
+  
+  .server-btn, .btn {
+    font-size: 12px;
+    padding: 8px 12px;
+    min-width: 70px;
+  }
+  
+  #desc {
+    padding: 10px;
+  }
+  
+  .season-tab {
+    font-size: 12px;
+    min-width: 80px;
+  }
+  
+  .episode-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 12px;
+  }
+  
+  .load-more-btn {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+  
+  .container, .markdown-div, .comments-container {
+    max-width: 100%;
+  }
+  
+  center {
+    width: 100%;
+  }
+  
+  /* Instruction text */
+  .instruction-text {
+    font-size: 0.9rem;
+  }
+  
+  #seriesDetails {
+    padding: 10px;
+  }
+  
+  #title {
+    font-size: 1.4rem;
+  }
+  
+  #description {
+    font-size: 0.9rem;
+  }
+  
+  .cast-section h3 {
+    font-size: 1.2rem;
+  }
+}
+
+/* Extra small devices (phones) */
+@media (max-width: 480px) {
+  .header-container {
+    padding: 0 10px;
+  }
+  
+  .logo .icon {
+    margin-right: 5px;
+    font-size: 1.2em;
+  }
+  
+  .server-btn, .btn {
+    font-size: 11px;
+    padding: 6px 10px;
+    min-width: 60px;
+    margin: 2px;
+  }
+  
+  .popup-content {
+    width: 95%;
+  }
+  
+  #desc {
+    padding: 5px;
+    font-size: 0.8rem;
+  }
+  
+  img {
+    max-width: 100%;
+  }
+  
+  #castList img {
+    width: 25vw;
+    max-width: 100px;
+  }
+} 

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Boxicons, Google Fonts, and other resources -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link href="../style.css" rel="stylesheet" />
+  <link href="tv-shows.css" rel="stylesheet" />
+  <link rel="icon" href="../favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  <title>TV Shows - Bingeflix</title>
+</head>
+<body>
+  
+  <!-- Header Section -->
+  <header class="site-header">
+    <div class="header-container">
+      <!-- Logo -->
+      <div class="logo">
+        <a href="../index.html" aria-label="BingeFlix Homepage">
+          <i class='bx bxl-c-plus-plus icon'></i>
+          <span>BingeFlix</span>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Toggle -->
+      <button id="mobileMenuToggle" class="mobile-menu-toggle" aria-label="Toggle menu">
+        <i class='bx bx-menu'></i>
+      </button>
+
+      <!-- Search Bar -->
+      <div class="header-search">
+        <input id="searchInput" type="text" placeholder="Search..." onkeydown="if (event.keyCode === 13) searchMovies()" aria-label="Search movies and TV shows" />
+        <button onclick="searchMovies()" aria-label="Search button"><i class='bx bx-search'></i></button>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="header-nav" id="headerNav">
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+    
+    <!-- Secondary Navigation for content types -->
+    <div class="secondary-nav">
+      <ul>
+        <li><a href="../movies/movies.html">Movies</a></li>
+        <li><a href="../tv-shows/tv-shows.html" class="active">TV Shows</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+      <h1 class="page-title">Trending TV Shows</h1>
+      
+      <!-- TV Shows Grid Container -->
+      <div class="tv-show-grid-container">
+        <div id="tvShowGrid" class="tv-show-grid">
+          <!-- TV Show cards will be populated here via JavaScript -->
+        </div>
+        
+        <div class="pagination">
+          <button id="loadMoreBtn" class="load-more-btn">Load More</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row copyright" style="position: relative; display: flex; justify-content: space-evenly; color: #fff; margin-top: 2rem;">
+      <p style="font-size: 15px; flex-basis: 1;font-weight: 400;text-align: center;">Copyright &copy; 2025 All Rights Reserved | BingFlix</p>
+    </div>
+
+    <div class="row copyright" style="position: relative; display: flex; justify-content: center; padding-bottom: 2vw; color: #fff;">
+      <p style="font-size: 15px;text-align: center;margin-left: 10vw;margin-right: 10vw;font-weight: 100;">Bingeflix does not host any files, it only links to 3rd party services.</p>
+    </div>
+  </main>
+
+  <script>
+  // Mobile menu toggle functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const headerNav = document.getElementById('headerNav');
+    
+    if (mobileMenuToggle && headerNav) {
+      mobileMenuToggle.addEventListener('click', function() {
+        headerNav.classList.toggle('mobile-active');
+        // Toggle menu icon
+        const icon = mobileMenuToggle.querySelector('i');
+        if (icon) {
+          if (icon.classList.contains('bx-menu')) {
+            icon.classList.remove('bx-menu');
+            icon.classList.add('bx-x');
+          } else {
+            icon.classList.remove('bx-x');
+            icon.classList.add('bx-menu');
+          }
+        }
+      });
+    }
+  });
+  </script>
+
+  <script src="tv-shows.js" type="text/javascript"></script>
+</body>
+</html> 

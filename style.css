@@ -1,0 +1,698 @@
+/* ==========================================================================
+   IMPORTS & GLOBAL STYLES
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+:root {
+  --primary-gradient: linear-gradient(135deg, rgb(1, 62, 97), rgb(209, 35, 4));
+  --hover-gradient: linear-gradient(135deg, rgb(1, 62, 97), rgb(209, 35, 4));
+  --active-gradient: linear-gradient(135deg, rgb(209, 35, 4), rgb(1, 62, 97));
+  --text-light: #ffffff;
+  --text-dark: #333333;
+  --bg-dark: #11101D;
+  --card-bg: rgba(17, 16, 29, 0.8);
+  --shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 8px 15px rgba(0, 0, 0, 0.2);
+  --border-radius-sm: 8px;
+  --border-radius-md: 16px;
+  --border-radius-lg: 32px;
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: var(--bg-dark);
+  margin: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   HEADER SECTION
+   ========================================================================== */
+
+/* -- Header Background & General Styles -- */
+.site-header {
+  background: var(--primary-gradient);
+  color: var(--text-light);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: var(--shadow-light);
+  width: 100%;
+}
+
+/* -- Header Container -- */
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  flex-wrap: nowrap;
+}
+
+/* -- Logo Styles -- */
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--text-light);
+  flex-shrink: 0;
+  margin-right: 1rem;
+}
+
+.logo a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo img {
+  height: 40px;
+  margin-right: 0.5rem;
+}
+
+.logo .icon {
+  margin-right: 0.5rem;
+  font-size: 1.4rem;
+  color: var(--text-light);
+}
+
+/* -- Search Bar Styles -- */
+.header-search {
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 25px;
+  height: 40px;
+  padding: 0 15px;
+  flex: 1;
+  max-width: 400px;
+  width: 100%;
+  margin: 0 15px;
+  overflow: hidden;
+}
+
+.header-search input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 0.9rem;
+  padding: 0;
+  outline: none;
+  width: 100%;
+}
+
+.header-search button {
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin-left: 10px;
+}
+
+.header-search button i {
+  font-size: 1.2rem;
+}
+
+/* -- Navigation Menu Styles -- */
+.header-nav {
+  display: flex;
+  align-items: center;
+}
+
+.header-nav ul {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.header-nav li {
+  margin: 0 0.5rem;
+}
+
+.header-nav li a {
+  color: var(--text-light);
+  font-weight: 400;
+  font-size: 0.9rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--border-radius-md);
+  transition: background var(--transition-normal), transform var(--transition-normal);
+  display: inline-block;
+}
+
+.header-nav li a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.header-nav li a.active {
+  background: rgba(255, 255, 255, 0.2);
+  font-weight: 500;
+}
+
+/* Secondary Navigation Menu */
+.secondary-nav {
+  background: rgba(0, 0, 0, 0.2);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.secondary-nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.secondary-nav li {
+  margin: 0;
+}
+
+.secondary-nav li a {
+  color: var(--text-light);
+  text-decoration: none;
+  padding: 0.8rem 1.5rem;
+  display: block;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  transition: background var(--transition-normal);
+}
+
+.secondary-nav li a:hover,
+.secondary-nav li a.active {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Mobile menu toggle button */
+.mobile-menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--text-light);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  margin-left: auto;
+  z-index: 1001;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+  .header-container {
+    flex-wrap: wrap;
+    padding: 0.5rem;
+  }
+  
+  .logo {
+    font-size: 1.2rem;
+    margin-right: 0;
+  }
+  
+  .header-search {
+    order: 3;
+    max-width: 100%;
+    margin: 0.5rem 0;
+    width: 100%;
+  }
+  
+  .header-nav {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 80%;
+    height: 100vh;
+    background: var(--bg-dark);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 5rem 1.5rem 1.5rem;
+    transition: left 0.3s ease;
+    z-index: 1000;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+  }
+  
+  .header-nav.mobile-active {
+    left: 0;
+  }
+  
+  .header-nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+  
+  .header-nav li {
+    margin: 0.5rem 0;
+    width: 100%;
+  }
+  
+  .header-nav li a {
+    padding: 0.8rem 0;
+    font-size: 1.1rem;
+    width: 100%;
+    display: block;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .secondary-nav {
+    padding: 0;
+    justify-content: flex-start;
+  }
+  
+  .secondary-nav ul {
+    width: 100%;
+    justify-content: space-around;
+  }
+  
+  .secondary-nav li a {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  
+  .mobile-menu-toggle {
+    display: block;
+    order: 1;
+    margin-right: 1rem;
+  }
+  
+  .logo {
+    order: 2;
+  }
+  
+  /* Mobile overlay when menu is active */
+  .mobile-menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+  
+  .mobile-menu-overlay.active {
+    display: block;
+  }
+}
+
+/* For even smaller screens */
+@media (max-width: 480px) {
+  .header-container {
+    padding: 0.3rem;
+  }
+  
+  .logo {
+    font-size: 1rem;
+  }
+  
+  .logo .icon {
+    font-size: 1.2rem;
+  }
+  
+  .header-search input {
+    font-size: 0.8rem;
+  }
+  
+  .secondary-nav li a {
+    padding: 0.5rem 0.6rem;
+    font-size: 0.75rem;
+  }
+}
+
+/* CSS for animation and transition effects */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* ==========================================================================
+   HERO SECTION
+   ========================================================================== */
+#heroSection {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+  margin-top: 0;
+  padding: 220px;  /* Desktop padding */
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+/* -- Mobile Hero Adjustments -- */
+@media (max-width: 768px) {
+  #heroSection {
+    padding: 120px 0;
+  }
+}
+
+.vertical-div {
+  width: 100px; /* Adjust as needed */
+  height: 10vh;
+  background-color: transparent;
+}
+
+/* ==========================================================================
+   SLIDER & ITEMS
+   ========================================================================== */
+.item {
+  width: 180px;
+  height: 250px;
+  list-style-type: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-position: center;
+  background-size: cover;
+  border-radius: 20px;
+  box-shadow: 0 20px 30px rgba(255, 255, 255, 0.3) inset;
+  transition: transform 0.1s, left 0.75s, top 0.75s, width 0.75s, height 0.75s;
+}
+
+/* Specific Positioning for Items */
+.item:nth-child(1),
+.item:nth-child(2) {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transform: none;
+  border-radius: 0;
+  box-shadow: none;
+  opacity: 1;
+  scrollbar-width: none; /* Firefox */
+}
+
+.item:nth-child(3) { left: 40%; }
+.item:nth-child(4) { left: calc(40% + 220px); }
+.item:nth-child(5) { left: calc(40% + 440px); opacity: 1; }
+.item:nth-child(6) { left: calc(40% + 660px); opacity: 0; }
+
+/* -- Content Styles in Slider Items -- */
+.content {
+  width: min(30vw, 400px);
+  position: relative;
+  top: 50%;
+  left: 3rem;
+  transform: translateY(-50%);
+  font: 400 0.85rem helvetica, sans-serif;
+  color: white;
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  display: none;
+}
+
+.content .title {
+  font-family: 'Poppins';
+  text-transform: uppercase;
+}
+
+.content .description {
+  line-height: 1.7;
+  margin: 1rem 0 1.5rem;
+  font-size: 0.7rem;
+}
+
+.content .watch-now-button {
+  width: fit-content;
+  text-decoration: none;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: white;
+  border: 2px solid white;
+  border-radius: 0.45rem;
+  padding: 0.75rem;
+  cursor: pointer;
+}
+
+/* Display content for second slider item with animation */
+.item:nth-of-type(2) .content {
+  display: block;
+  animation: show 0.75s ease-in-out 0.3s forwards;
+}
+
+/* -- Keyframes for Content Animation -- */
+@keyframes show {
+  0% {
+    filter: blur(5px);
+    transform: translateY(calc(-50% + 75px));
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+/* ==========================================================================
+   NAV SLIDER
+   ========================================================================== */
+.nav {
+  position: relative;
+  bottom: -15rem;
+  left: 50%;
+  width: 200px;
+  transform: translateX(-50%);
+  z-index: 5;
+  user-select: none;
+}
+
+.nav .btn {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: rgba(0, 0, 0, 0.7);
+  border: 2px solid rgba(0, 0, 0, 0.6);
+  margin: 0 0.25rem;
+  padding: 0.75rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.nav .btn:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* ==========================================================================
+   SUB NAVIGATION
+   ========================================================================== */
+#hnav_Content nav {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #63151500;
+  background-color: #1d1b318c;
+  border-left: transparent;
+  border-right: transparent;
+  margin: 20px 10px;
+  text-decoration-color: rgba(240, 248, 255, 0.443);
+  margin-bottom: 5rem;
+}
+
+#hnav_Content nav a {
+  color: #fff;
+  text-decoration: wavy;
+  font-family: 'Press Start 2p';
+  font-size: 0.8em;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+#hnav_Content nav a:hover {
+  background-color: #4a97e400;
+  animation: jello-horizontal 1.0s;
+}
+
+/* -- Keyframes for Sub Navigation Hover Animation -- */
+@-webkit-keyframes jello-horizontal {
+  0% { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }
+  30% { -webkit-transform: scale3d(1.25, 0.75, 1); transform: scale3d(1.25, 0.75, 1); }
+  40% { -webkit-transform: scale3d(0.75, 1.25, 1); transform: scale3d(0.75, 1.25, 1); }
+  50% { -webkit-transform: scale3d(1.15, 0.85, 1); transform: scale3d(1.15, 0.85, 1); }
+  65% { -webkit-transform: scale3d(0.95, 1.05, 1); transform: scale3d(0.95, 1.05, 1); }
+  75% { -webkit-transform: scale3d(1.05, 0.95, 1); transform: scale3d(1.05, 0.95, 1); }
+  100% { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }
+}
+
+@keyframes jello-horizontal {
+  0% { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }
+  30% { -webkit-transform: scale3d(1.25, 0.75, 1); transform: scale3d(1.25, 0.75, 1); }
+  40% { -webkit-transform: scale3d(0.75, 1.25, 1); transform: scale3d(0.75, 1.25, 1); }
+  50% { -webkit-transform: scale3d(1.15, 0.85, 1); transform: scale3d(1.15, 0.85, 1); }
+  65% { -webkit-transform: scale3d(0.95, 1.05, 1); transform: scale3d(0.95, 1.05, 1); }
+  75% { -webkit-transform: scale3d(1.05, 0.95, 1); transform: scale3d(1.05, 0.95, 1); }
+  100% { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }
+}
+
+/* -- Responsive Adjustments for Sub Navigation -- */
+@media only screen and (max-width: 1000px) {
+  #hnav_Content nav a {
+    font-size: 1.6vw;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #hnav_Content nav {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #hnav_Content nav a {
+    font-size: 14px;
+    margin: 5px 0;
+  }
+}
+
+/* ==========================================================================
+   BUTTONS
+   ========================================================================== */
+.btf {
+  z-index: 99;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 60px;
+  height: 100%;
+  border: none;
+  border-radius: 15px;
+  background-color: #11101da1;
+}
+
+.btw {
+  border: none;
+  z-index: 99;
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  width: 60px;
+  height: 100%;
+  border-radius: 15px;
+  background-color: #11101da1;
+}
+
+.bx.bxs-chevron-right,
+.bx.bxs-chevron-left {
+  font-size: 40px;
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   SCROLL CONTAINER
+   ========================================================================== */
+.imgbtn {
+  position: relative;
+}
+
+div.scroll-container {
+  background-color: #1D1B31;
+  min-height: 35vh;
+  max-height: fit-content;
+  overflow-x: scroll;
+  border-radius: 15px;
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  white-space: nowrap;
+  padding: 10px;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+@media (max-width: 848px) {
+  div.scroll-container {
+    min-height: 25vh;
+    max-height: 25vh;
+  }
+}
+
+/* -- Hide Scrollbar for Chrome, Safari, Opera, and Firefox -- */
+.scroll-container {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+div.scroll-container img {
+  max-width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+/* ==========================================================================
+   MISCELLANEOUS
+   ========================================================================== */
+p {
+  font-size: 25px;
+  font-family: Poppins, sans-serif;
+  font-weight: bolder;
+}
+
+.site-footer {
+  background-color: #111;
+  color: #ccc;
+  padding: 20px;
+  text-align: center;
+  font-size: 0.9em;
+}
+
+/* Additional CSS for main content sections can remain similar to your existing styles */
+/* ... */

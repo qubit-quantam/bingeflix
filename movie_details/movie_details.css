@@ -1,0 +1,568 @@
+/* ==========================================================================
+   1. IMPORTS & GLOBAL STYLES
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  width: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  width: 100%;
+  background-color: black;
+  color: rgb(252, 252, 252);
+  margin-left: 0;
+}
+
+/* ==========================================================================
+   2. MAIN LAYOUT & VIDEO/IFRAME SIZING
+   ========================================================================== */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 2rem;
+  color: #f5f5f5; /* Lighter, more visible color */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Text shadow for better visibility */
+}
+
+/* Content wrapper improvements */
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px; /* Increased from 1000px */
+  margin: 0 auto;
+  padding: 10px;
+}
+
+/* =================== Video Player & Iframe =================== */
+#videoPlayer {
+  width: 100%;
+  max-width: 1100px; /* Increased from 900px */
+  margin: 0 auto 20px;
+  position: relative;
+  background-color: rgb(3, 16, 27);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+#movieIframe {
+  width: 100%;
+  aspect-ratio: 16/9;
+  max-height: 700px; /* Increased from 600px */
+  border: none;
+  display: block;
+}
+
+/* =================== Movie Details Container =================== */
+#movieDetails {
+  width: 100%;
+  max-width: 1100px; /* Increased from 900px to match video player */
+  margin: 30px auto;
+  text-align: center;
+  padding: 20px;
+  background: rgba(3, 16, 40, 0.7);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#poster {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  margin: 0 auto 20px;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  #poster {
+    max-width: 300px;
+  }
+}
+
+/* Ensure all text content is centered */
+h1, h2, h3 {
+  text-align: center;
+  width: 100%;
+  color: #f5f5f5; /* Ensure all headings are visible */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Movie Details Container */
+#movieDetails {
+  width: 100%;
+}
+
+/* Cast List */
+#castList {
+  display: flex;
+  flex-direction: row;
+  padding: 1%;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  box-sizing: border-box;
+}
+
+#castList img {
+  width: 10vw;
+  margin: 5px;
+  height: auto;
+  max-width: 100%;
+}
+
+/* Markdown Div */
+.markdown-div {
+  padding-top: 5%;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.markdown-div pre {
+  background-color: rgb(3, 16, 27);
+  max-width: 100%;
+  overflow-x: auto;
+  color: #f5f5f5; /* Ensure text is visible */
+}
+
+.markdown-div pre code {
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: #f5f5f5; /* Ensure code text is visible */
+}
+
+/* ==========================================================================
+   5. SHIMMER EFFECT (LOADING PLACEHOLDER)
+   ========================================================================== */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px;
+  }
+  100% {
+    background-position: 1000px;
+  }
+}
+
+.shimmer-bg {
+  background: linear-gradient(to right, rgba(16, 32, 47, 0.1) 0%, rgba(16, 32, 47, 0.3) 50%, rgba(33, 100, 161, 0.1) 100%);
+  background-size: 1000px 100%;
+  animation: shimmer 1.5s infinite linear;
+}
+
+/* ==========================================================================
+   6. HEADER & NAVIGATION
+   ========================================================================== */
+/* Header Base */
+.site-header {
+  background: linear-gradient(135deg, rgb(1, 62, 97), rgb(209, 35, 4));
+  color: #fff;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 10px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Container */
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+/* Logo Styling */
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.4em;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.logo a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.logo .icon {
+  margin-right: 8px;
+  font-size: 1.4em;
+  color: #ffffff;
+}
+
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+/* Search Bar */
+.header-search {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  max-width: 400px;
+  margin: 0 20px;
+  position: relative;
+}
+
+.header-search input {
+  width: 100%;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 20px 0 0 20px;
+  outline: none;
+  font-size: 0.9em;
+  background: #fff;
+  color: #333;
+}
+
+.header-search button {
+  background: rgb(209, 35, 4);
+  border: none;
+  padding: 8px 12px;
+  border-radius: 0 20px 20px 0;
+  cursor: pointer;
+  font-size: 1em;
+  color: #fff;
+  transition: 0.3s ease;
+}
+
+.header-search button:hover {
+  background: rgb(1, 62, 97);
+}
+
+/* Navigation Menu */
+.header-nav ul {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+}
+
+.header-nav a {
+  color: #fff;
+  font-size: 1em;
+  text-decoration: none;
+  padding: 6px 12px;
+  transition: 0.3s ease;
+}
+
+.header-nav a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
+
+/* Secondary navigation */
+.secondary-nav {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 8px 0;
+  width: 100%;
+}
+
+.secondary-nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: 20px;
+}
+
+.secondary-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9em;
+  padding: 5px 10px;
+  transition: 0.3s ease;
+}
+
+.secondary-nav a:hover, 
+.secondary-nav a.active {
+  color: #ff4b2b;
+}
+
+/* ==========================================================================
+   7. BUTTON CONTAINER AND SERVER BUTTONS
+   ========================================================================== */
+#buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  width: 100%;
+  margin: 15px auto;
+  padding: 10px;
+  max-width: 1100px; /* Match video player width */
+}
+
+.btn, .server-btn {
+  padding: 10px 15px;
+  margin: 5px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  background-color: #263545;
+  color: #f5f5f5;
+  min-width: 85px;
+}
+
+.btn:hover {
+  background-color: #334a66;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.server-btn {
+  background-color: #1a2634;
+  border: 1px solid #2c3e50;
+}
+
+.server-btn:hover, .server-btn.active {
+  background-color: #2980b9;
+  color: white;
+  border-color: #3498db;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+#Trailerbtn {
+  background-color: #e74c3c;
+  color: white;
+}
+
+#Trailerbtn:hover {
+  background-color: #c0392b;
+}
+
+/* ==========================================================================
+   8. MEDIA QUERIES FOR RESPONSIVENESS
+   ========================================================================== */
+@media (min-width: 769px) {
+  .mobile-menu-toggle {
+    display: none;
+  }
+  .header-nav {
+    display: flex;
+  }
+}
+
+@media (max-width: 768px) {
+  .btn, .server-btn {
+    font-size: 12px;
+    padding: 8px 12px;
+    min-width: 70px;
+    margin: 3px;
+  }
+
+  .header-container {
+    flex-wrap: wrap;
+  }
+
+  .logo {
+    margin-right: auto;
+  }
+
+  .header-search {
+    order: 3;
+    margin: 10px 0;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .header-nav {
+    position: fixed;
+    top: 60px;
+    left: -100%;
+    width: 80%;
+    height: calc(100vh - 60px);
+    background: rgb(1, 62, 97);
+    z-index: 1000;
+    transition: 0.5s;
+    padding: 20px 0;
+    overflow-y: auto;
+  }
+
+  .header-nav.show {
+    left: 0;
+  }
+
+  .header-nav ul {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .header-nav li {
+    width: 100%;
+    margin: 0;
+  }
+
+  .header-nav a {
+    width: 100%;
+    display: block;
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+    margin-left: 15px;
+  }
+
+  h1, h2, h3, p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+  }
+
+  #poster {
+    max-width: 80%;
+  }
+
+  #videoPlayer {
+    max-width: 100%;
+  }
+
+  #videoPlayer iframe,
+  #movieIframe {
+    max-height: 450px; /* Increased from original */
+  }
+
+  #desc {
+    padding: 10px;
+  }
+
+  .instruction-text {
+    font-size: 0.9rem;
+  }
+
+  #movieDetails {
+    padding: 10px;
+  }
+
+  #title {
+    font-size: 1.4rem;
+  }
+
+  #description {
+    font-size: 0.9rem;
+  }
+
+  .cast-section h3 {
+    margin-top: 20px;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn, .server-btn {
+    font-size: 11px;
+    padding: 6px 10px;
+    min-width: 60px;
+    margin: 2px;
+  }
+
+  #desc {
+    padding: 5px;
+    font-size: 0.8rem;
+  }
+
+  img {
+    max-width: 100%;
+  }
+}
+
+.instruction-text {
+  margin: 15px 0;
+  padding: 10px;
+  background-color: rgba(16, 32, 47, 0.3);
+  border-radius: 6px;
+  font-size: 0.95rem;
+  color: #e0e0e0;
+}
+
+.server-buttons-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  gap: 10px;
+}
+
+.server-button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+#title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin: 15px 0;
+  color: #f5f5f5;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+#description {
+  line-height: 1.6;
+  margin: 15px auto;
+  max-width: 90%;
+  font-size: 1rem;
+  color: #e0e0e0;
+  text-align: center;
+}
+
+#desc {
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  margin: 10px 0;
+}
+
+.cast-section {
+  margin-top: 25px;
+  width: 100%;
+}
+
+.cast-section h3 {
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+}

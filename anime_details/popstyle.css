@@ -1,0 +1,474 @@
+/* ============================================
+   Global Styles & Resets
+============================================ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: #f4f7f9;
+  color: #333;
+}
+
+/* ============================================
+   Pop-Up Overlay & Content
+============================================ */
+
+/* Pop-Up Overlay */
+.popup-overlay {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.1); /* Dark overlay */
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+/* Optional Logo */
+.popup-logo {
+  display: block;
+  max-width: 120px;
+  margin: 0 auto 15px;
+  border-radius: 10px;
+}
+
+/* Pop-Up Content Box */
+.popup-content {
+  position: relative;
+  max-width: 700px;
+  width: 95%;
+  margin: 80px auto;
+  padding: 30px 20px;
+  background: linear-gradient(145deg, #ffffff, #f3f3f3);
+  border-radius: 16px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  color: #333;
+}
+
+/* Pop-Up Header */
+.popup-content h2 {
+  font-size: 1.8rem;
+  color: #007BFF;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+/* Pop-Up Paragraphs */
+.popup-content p {
+  font-size: 1rem;
+  margin-top: 8px;
+  line-height: 1.5;
+  color: #555;
+}
+
+/* Verify Button */
+.popup-content .verify-btn {
+  padding: 10px 25px;
+  font-size: 1.1rem;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 8px;
+}
+
+.popup-content .verify-btn:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+/* Instructions Paragraph */
+.popup-content .instructions {
+  font-size: 0.95rem;
+  color: #000;
+  margin-top: 10px;
+  font-style: italic;
+}
+
+/* "How to Complete Verification" Button */
+.popup-content .how-to-btn {
+  position: absolute;
+  right: 20px;
+  bottom: 5px;
+  font-size: 0.9rem;
+  padding: 8px 15px;
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.popup-content .how-to-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Instructions Section */
+#instructions-container .instruction-section {
+  margin-top: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+#instructions-container .instruction-section h3 {
+  font-size: 1.2rem;
+  color: #007BFF;
+  margin-bottom: 5px;
+}
+
+#instructions-container .instruction-section p {
+  font-size: 1rem;
+  color: #333;
+}
+
+/* QR Code */
+.qrcode {
+  width: 150px;
+  height: auto;
+  display: block;
+  margin: 10px auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================
+   Online User Counter
+============================================ */
+/* ============================================
+   Enhanced Live Online Counter
+============================================ */
+/* Enhanced Live Online Counter */
+.live-counter-container {
+  background: #000;              /* Black background */
+  padding: 8px 12px;
+  border-radius: 12px;
+  width: 200px;                  /* Adjusted width for a smaller box */
+  margin: 20px auto;             /* Centered horizontally */
+  display: flex;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+  border: 1px solid #333;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8); /* 3D effect */
+}
+
+.counter-icon {
+  background: linear-gradient(45deg, #28a745, #7dd56f);
+  padding: 6px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.counter-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.counter-details {
+  display: flex;
+  align-items: center;
+  gap: 16px; /* Reduced gap between text and live indicator */
+}
+
+.counter-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.counter-number {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.counter-label {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  text-align: left;
+}
+
+/* Live Pulse Indicator */
+.live-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ff4d4d;
+  position: relative;
+  animation: pulseModern 1.5s infinite;
+}
+
+@keyframes pulseModern {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 77, 77, 0.7);
+    background-color: rgba(255, 77, 77, 1);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(255, 77, 77, 0);
+    background-color: rgba(255, 77, 77, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 77, 77, 0);
+    background-color: rgba(255, 77, 77, 1);
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .popup-content {
+    width: 90%;
+    padding: 25px 15px;
+    margin: 60px auto;
+  }
+  
+  .popup-content h2 {
+    font-size: 1.5rem;
+  }
+  
+  .popup-content p {
+    font-size: 0.9rem;
+  }
+  
+  .popup-content .verify-btn {
+    padding: 8px 20px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .popup-content {
+    width: 95%;
+    padding: 20px 12px;
+    margin: 40px auto;
+  }
+  
+  .popup-content h2 {
+    font-size: 1.3rem;
+  }
+  
+  .popup-content p {
+    font-size: 0.85rem;
+  }
+  
+  .popup-content .verify-btn {
+    padding: 8px 15px;
+    font-size: 0.95rem;
+  }
+  
+  .popup-content .instructions {
+    font-size: 0.8rem;
+  }
+  
+  .popup-content .how-to-btn {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+}
+
+/* ============================================
+   Comments Section
+============================================ */
+.comments-container {
+  margin-top: 25px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  max-height: 400px;
+  overflow-y: auto;
+  text-align: left;
+}
+
+.comments-header {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.comments-header b {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.comments-container hr {
+  border: 0;
+  height: 1px;
+  background: #eee;
+  margin: 5px 0 15px;
+}
+
+.comment-input-wrapper {
+  display: flex;
+  margin-bottom: 15px;
+  gap: 8px;
+}
+
+.comment-input-wrapper input#comment {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.comment-input-wrapper button#post {
+  background: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 15px;
+  cursor: pointer;
+}
+
+.comment-input-wrapper button#post:hover {
+  background: #0056b3;
+}
+
+.premium-notice {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.premium-notice input#check {
+  margin-right: 8px;
+}
+
+.premium-notice span {
+  font-style: italic;
+}
+
+.comments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-height: 250px;
+  overflow-y: auto;
+  padding-right: 5px;
+  margin-top: 10px;
+}
+
+.comment {
+  display: flex;
+  padding: 10px;
+  border-radius: 8px;
+  background: #f9f9f9;
+  border-left: 3px solid #007BFF;
+}
+
+.comment:last-child {
+  margin-bottom: 0;
+}
+
+.comment-avatar {
+  margin-right: 12px;
+}
+
+.comment-avatar img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.comment-content {
+  flex: 1;
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  font-size: 0.85rem;
+}
+
+.comment-name {
+  font-weight: 600;
+  color: #333;
+}
+
+.comment-timestamp {
+  color: #888;
+  font-size: 0.8rem;
+}
+
+.comment-text {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #444;
+  margin-bottom: 8px;
+}
+
+.comment-actions button {
+  background: none;
+  border: none;
+  color: #007BFF;
+  font-size: 0.8rem;
+  cursor: pointer;
+  padding: 0;
+  margin-right: 5px;
+  font-weight: 500;
+}
+
+.comment-actions button:hover {
+  text-decoration: underline;
+}
+
+.like-count {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+/* ============================================
+   See More Button for Comments
+============================================ */
+.see-more-comments {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.see-more-btn {
+  background: #f0f0f0;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 20px;
+  color: #555;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.see-more-btn:hover {
+  background: #e0e0e0;
+}
+
+.premium-msg {
+  color: #ff4d4d;
+  font-size: 0.85rem;
+  margin-top: 10px;
+  display: none;
+}
+
+.premium-msg.show {
+  display: block;
+  animation: fadeIn 0.5s ease;
+} 
