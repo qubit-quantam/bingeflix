@@ -321,13 +321,13 @@ function updateEmbedSources(seriesId, seasonNumber, episodeNumber) {
   
   // Build URLs using the correct ID type:
   const server1Url = `https://vidlink.pro/tv/${seriesId}/${seasonNumber}/${episodeNumber}`;
-  const server2Url = `https://watch.streamflix.one/tv/${seriesId}/watch?server=1${seasonNumber && episodeNumber ? `&season=${seasonNumber}&episode=${episodeNumber}` : ''}`;
-  const server3Url = `https://embed.su/embed/tv/${seriesId}/${seasonNumber}/${episodeNumber}`;
-  const server4Url = `https://www.2embed.stream/embed/tv/${imdbId}/${seasonNumber}/${episodeNumber}`;
+  const server2Url = `https://vidfast.pro/tv/${seriesId}/${seasonNumber}/${episodeNumber}?autoPlay=true`;
+  const server3Url = `https://player.videasy.net/tv/${seriesId}/${seasonNumber}/${episodeNumber}?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6`;
+  const server4Url = `https://vidsrc.su/tv/${seriesId}/${seasonNumber}/${episodeNumber}`;
   const server5Url = `https://www.2embed.cc/embedtv/${imdbId}&s=${seasonNumber}&e=${episodeNumber}`;
-  const server6Url = `https://player.videasy.net/tv/${seriesId}/${seasonNumber}/${episodeNumber}?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6`;
-  const server7Url = `https://vidfast.pro/tv/${seriesId}/${seasonNumber}/${episodeNumber}?autoPlay=true`;
-  const server8Url = `https://moviesapi.club/tv/${seriesId}-${seasonNumber}-${episodeNumber}`;
+  const server6Url = `https://vidsrc.pm/embed/tv/${imdbId}&s=${seasonNumber}&e=${episodeNumber}`;
+  const server7Url = `https://moviesapi.club/tv/${seriesId}-${seasonNumber}-${episodeNumber}`;
+  const server8Url = `https://watch.autoembed.cc/tv/${seriesId}/${seasonNumber}/${episodeNumber}`;
   
   const embedSources = [
     server1Url, // Vidlink.pro (default)
